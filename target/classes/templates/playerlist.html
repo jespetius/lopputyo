@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" contect="text/html"  charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Lista</title>
+</head>
+<body>
+  <h1>Tilastot</h1>
+  <table>
+  <tr>
+  <th>Name</th>
+  <th>Jerseynumber</th>
+  <th>Weight (kg)</th>
+  <th>Height (cm)</th>
+  <th>Games</th>
+  <th>Goals</th>
+  <th>Yellow Cards</th>
+  <th> Red Cards</th>
+   
+  
+  </tr>
+  <tr th:each = "player : ${players}">
+  <td th:text= "${player.firstName}+ ' ' + ${player.lastName}"></td>
+    <td th:text=  "${player.jersey}"></td>
+     <td th:text= "${player.weight}"></td>
+      <td th:text= "${player.height}"></td>
+       <td th:text= "${player.games}"></td>
+        <td th:text= "${player.goals}"></td>
+         <td th:text= "${player.yellowCards}"></td>
+          <td th:text= "${player.redCards}"></td>
+          <td><a th:href="@{/delete/{id}(id=${player.id})}">Delete</a></td>
+          <td><a th:href="@{/edit/{id}(id=${player.id})}">Edit</a></td>
+  </tr>
+  
+  </table>
+	<a href="/addplayer" class="button">Lisää Pelaaja</a> 
+	 <br/>
+	<a href="/index" class="button">Etusivu</a>
+</form>
+</body>
+</html>

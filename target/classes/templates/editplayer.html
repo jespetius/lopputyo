@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>editplayer</title>
+</head>
+<body>
+
+	<h1>Edit Player</h1>
+
+	<form th:object="${player}" th:action="@{../editplayer}" action="#" method="post">
+		<input type="hidden" th:field="${player.id}" />
+		<label for="firstName">Firstname</label>
+		<input id="firstName" type="text" th:field="${player.firstName}" /><br>
+		<label for="lastName">Lastname</label>
+		<input id="lastName" type="text" th:field="${player.lastName}" /><br>
+		<label for="jersey">Jersey number</label>
+		<input id="jersey" type="text" th:field="${player.jersey}" /><br>
+		<label for="weight">Weight(kg)</label>
+		<input id="weight" type="text" th:field="${player.weight}" /><br>
+		<label for="height">Height(cm)</label>
+		<input id="height" type="text" th:field="${player.height}" /><br>
+		<label for="games">Games</label>
+		<input id="games" type="text" th:field="${player.games}" /><br>
+		<label for="goals">Goals</label>
+		<input id="goals" type="text" th:field="${player.goals}" /><br>
+		<label for="yellowCards">Yellow Cards</label>
+		<input id="yellowCards" type="text" th:field="${player.yellowCards}" /><br>
+		<label for="redCards">Red Cards</label>
+		<input id="redCards" type="text" th:field="${player.redCards}" /><br>
+		
+		
+		<input type="submit" value="Save" />
+	</form>
+
+</body>
+</html>
