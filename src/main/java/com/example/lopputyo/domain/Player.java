@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+//luodaan pelaaja ja annetaan sille attribuutit
 @Entity
 public class Player {
 @Id
@@ -33,7 +33,7 @@ public Player(String firstName, String lastName, String jersey, String weight, S
 	this.yellowCards = yellowCards;
 	this.redCards = redCards;
 }
-
+//getters and setters
 public long getId() {
 	return id;
 }

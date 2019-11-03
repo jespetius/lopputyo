@@ -1,7 +1,7 @@
 package com.example.lopputyo.domain;
 
 import javax.persistence.*;
-
+//luodaan käyttäjä ja sille attribuutit
 @Entity
 public class User {
 
