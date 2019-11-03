@@ -14,5 +14,10 @@
 	<a href="/playerlist" class="button">Tilastot</a> 
 	<br/>
 	<a href="/login" class="button">Kirjaudu</a> 
+	
+	<p th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</p>
+	<form action="#" th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout">
+	</form><br/>
 </body>
 </html>

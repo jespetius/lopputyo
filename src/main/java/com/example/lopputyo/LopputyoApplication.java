@@ -26,14 +26,14 @@ public class LopputyoApplication {
 			
 			
 			
-			
+			//tallennettu valmiiksi yksi admin ja yksi user
 			User user1 = new User ("Pekka", "Paavola", "pekka.paavola@gmail.com", "admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			urepository.save(user1);
 			
 			User user2 = new User ("Meitsi", "Meikäläinen", "meitsi@gmail.com", "user", "$2a$10$p7xtIVvG79Ld3Omw4DA56eIB/2adtGnVmaNqRMXcbvJHcuOXuObGy", "USER");
 			urepository.save(user2);
 			
-
+//Tallennettu pelaajat valmiiksi
 			Player player1 = new Player("Jesperi", "Kuula", "74", "85", "189", "12", "10", "2", "1");
 			prepository.save(player1);
 			

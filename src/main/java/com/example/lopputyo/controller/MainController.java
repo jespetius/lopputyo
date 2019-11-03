@@ -27,15 +27,15 @@ public class MainController {
 		return "index";
 	}
 	//rekisteröityminen
-	//
+	//formi, missä täytetään tiedot
 	@GetMapping("/signin")
 	public String addUser(Model model) {
 		model.addAttribute("user", new User());
 		
 		return "signin";
 	}
-	
-	@PostMapping("/sigin")
+	//tallentaa 
+	@PostMapping("/signin")
 	public String saveUser(User user) {
 		urepository.save(user);
 		return "redirect:/login";
@@ -46,10 +46,7 @@ public class MainController {
 	public String login() {
 		return "login";
 	}
-	@GetMapping({ "/hello"})
-	public String hello() {
-		return "hello";
-	}	
+		
 	//virhe tapahtuu
 	@GetMapping({ "/error"})
 	public String error() {
@@ -63,6 +60,7 @@ public class MainController {
 	}
 	
 	//uuden pelaajan lisääminen
+	//ohjaus formiin
 	@GetMapping("/addplayer")
 	public String addPlayer(Model model) {
 		model.addAttribute("player", new Player());
@@ -71,12 +69,14 @@ public class MainController {
 	}
 	
 	//uuden pelaajan lisääminen
+	//tallennetaan 
 	@PostMapping("/addplayer")
 	public String savePlayer1(Player player) {
 		prepository.save(player);
 		return "redirect:/playerlist";
 	}	
 	// pelaajan poisto
+	//haetaan id, mikä poistetaan
 		@GetMapping("/delete/{id}")
 		@PreAuthorize("hasAuthority('ADMIN')")
 		public String deletePlayer(@PathVariable("id") Long playerId) {
@@ -85,11 +85,14 @@ public class MainController {
 		}
 		
 		// pelaajan muokkaaminen
+		//haetaan idllä pelaaja, jota muokataan
 		@GetMapping("/edit/{id}")
 		public String editPlayer(@PathVariable("id") Long playerId, Model model) {
 			model.addAttribute("player", prepository.findById(playerId));
 			return "editplayer";
 		}
+		
+		//Tässä tallennetaan pelaaja uusilla arvoilla
 		@PostMapping("/editplayer")
 		public String savePlayer(Player player) {
 			prepository.save(player);

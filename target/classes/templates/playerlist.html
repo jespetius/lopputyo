@@ -6,6 +6,7 @@
 	<title>Lista</title>
 </head>
 <body>
+
   <h1>Tilastot</h1>
   <table>
   <tr>
@@ -18,7 +19,7 @@
   <th>Yellow Cards</th>
   <th> Red Cards</th>
    
-  
+  //haetaan pelaajien tiedot
   </tr>
   <tr th:each = "player : ${players}">
   <td th:text= "${player.firstName}+ ' ' + ${player.lastName}"></td>
@@ -37,6 +38,12 @@
 	<a href="/addplayer" class="button">Lisää Pelaaja</a> 
 	 <br/>
 	<a href="/index" class="button">Etusivu</a>
+	<br/>
+	
+	<p th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</p>
+	<form action="#" th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout">
+	</form><br/>
 </form>
 </body>
 </html>
